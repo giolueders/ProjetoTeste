@@ -2,7 +2,7 @@ package projetoAutomacao.teste;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.Keys;
 
@@ -12,8 +12,8 @@ public class Login extends BaseTeste {
 
     private static LoginPO loginPage;
 
-    @BeforeClass
-    public static void prepararTeste(){
+    @Before
+        public void prepararTeste(){
         loginPage = new LoginPO(driver);
     }
    

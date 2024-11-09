@@ -1,7 +1,7 @@
 package projetoAutomacao.teste;
 
 import io.restassured.RestAssured;
-import io.restassured.response.ResponseBodyData;
+import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 
 import org.junit.jupiter.api.BeforeAll;
@@ -37,9 +37,10 @@ public class apiGetTest {
                 .get("/objects?id={id}") 
             .then()
                 .statusCode(200) // Valida se o status da resposta é 200 (OK)
-                .body("id", equalTo(idObject));
+                .body("id[0][0]", equalTo(idObject));
 
-        System.out.println("Resposta da API: " + ((ResponseBodyData) response).asString());
+        Response actualResponse = response.extract().response();
+        System.out.println("Resposta da API: " + actualResponse.asString());
 
     }
 

@@ -1,7 +1,7 @@
 package projetoAutomacao.teste;
 
 
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
 
 import projetoAutomacao.PageObject.carrinhoPO;
@@ -10,8 +10,8 @@ public class carrinho extends BaseTeste{
 
 
     private static carrinhoPO carrinhoPage;
-    @BeforeClass
-    public static void prepararTeste(){
+    @Before
+    public void prepararTeste(){
         carrinhoPage = new carrinhoPO(driver);
     }
     

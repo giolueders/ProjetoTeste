@@ -2,15 +2,15 @@ package projetoAutomacao.teste;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
 import projetoAutomacao.PageObject.filtroPO;
 
 public class filtro extends BaseTeste{
 
     private static filtroPO filtroPage;
-    @BeforeClass
-    public static void prepararTeste(){
+    @Before
+    public void prepararTeste(){
         filtroPage = new filtroPO(driver);
     }
 

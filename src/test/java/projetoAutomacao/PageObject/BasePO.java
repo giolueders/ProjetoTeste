@@ -19,6 +19,7 @@ public class BasePO {
      * @param driver Driver da página atual.
      */
 
+    @SuppressWarnings("static-access")
     protected BasePO(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);

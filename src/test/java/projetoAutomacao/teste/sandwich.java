@@ -2,31 +2,26 @@ package projetoAutomacao.teste;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import projetoAutomacao.PageObject.sandwichPO;
 
 public class sandwich extends BaseTeste{
 
     private static sandwichPO sandwichPage;
-    @BeforeClass
-    public static void prepararTeste(){
+    @Before
+    public void prepararTeste(){
        sandwichPage = new sandwichPO(driver);
     }
 
-    WebDriverWait wait = new WebDriverWait(driver, 10);
 
     @Test
     public void TC_001_verificarSeOItemAllItensDoSanduicheEstaFuncionado() throws InterruptedException{
         sandwichPage.login();
         sandwichPage.irParaOCarrinho();
         sandwichPage.abreOSanduiche();
-        Thread.sleep(3);
+        Thread.sleep(7);
         sandwichPage.buttonAllItens.click();
         boolean casaco = sandwichPage.verificaItemCasaconaTela();
         boolean mochila = sandwichPage.verificaItemMochilaNaTela();
@@ -36,14 +31,12 @@ public class sandwich extends BaseTeste{
     }
 
     @Test
-    public void TC_002_verificarSeOItemAboutDoSanduicheEstaFuncionado(){
+    public void TC_002_verificarSeOItemAboutDoSanduicheEstaFuncionado() throws InterruptedException{
         sandwichPage.login();
         sandwichPage.abreOSanduiche();
-        @SuppressWarnings("unused")
-        WebElement about = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("about_sidebar_link")));
+        Thread.sleep(100);
         sandwichPage.buttonAbout.click();
-        @SuppressWarnings("unused")
-        WebElement solutionsbutton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Solutions')]")));
+        Thread.sleep(20);
         boolean solutions = sandwichPage.verificaSpanSolutions();
         boolean testFree = sandwichPage.verificaBotaoTelaAbout();
         assertTrue(solutions);
@@ -51,11 +44,10 @@ public class sandwich extends BaseTeste{
     }
 
     @Test
-    public void TC_003_verificarSeOItemLogoutDoSanduicheEstaFuncionado(){
+    public void TC_003_verificarSeOItemLogoutDoSanduicheEstaFuncionado() throws InterruptedException{
         sandwichPage.login();
         sandwichPage.abreOSanduiche();
-        @SuppressWarnings("unused")
-        WebElement logout = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("logout_sidebar_link")));
+        Thread.sleep(100);
         sandwichPage.buttonLogout.click();
         boolean usersLogin = sandwichPage.verificaLogout();
         assertTrue(usersLogin);

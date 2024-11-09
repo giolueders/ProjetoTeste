@@ -2,7 +2,7 @@ package projetoAutomacao.teste;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
 
 import projetoAutomacao.PageObject.checkoutPO;
@@ -10,8 +10,8 @@ import projetoAutomacao.PageObject.checkoutPO;
 public class checkout extends BaseTeste {
 
     private static checkoutPO checkoutPage;
-    @BeforeClass
-    public static void prepararTeste(){
+    @Before
+    public void prepararTeste(){
         checkoutPage = new checkoutPO(driver);
     }
 
